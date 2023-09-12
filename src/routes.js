@@ -12,7 +12,7 @@ routes.get('/', (req, res) => {
 
 routes.get('/pessoas', selectUsers)
 routes.get('/pessoa', selectUser)
-routes.post('/pessoa', insertUser)
+routes.post('/user', insertUser)
 routes.put('/pessoa', updateUser)
 routes.delete('/pessoa', deleteUser)
 routes.post('/login', loginTest)

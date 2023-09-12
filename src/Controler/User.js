@@ -7,10 +7,9 @@ export async function createUserTable() {
 }
 
 export async function insertUser(req, res) {
-    let user = req.body
-    openDb().then(db => {
-        db.run('INSERT INTO User (name, email, password) VALUES (?,?,?)', [user.name, user.email, user.password])
-    })
+    const { name, email, password } = req.body;
+    const dbOpened = await openDb()
+    const user = await dbOpened.run('INSERT INTO User (name, email, password) VALUES (?,?,?)', [name, email, password])
     res.json({ "statusCode": 200 })
 }
 
@@ -38,10 +37,9 @@ export async function selectUser(req, res) {
 
 export async function deleteUser(req, res) {
     let id = req.body.id
-    openDb().then(db => {
-        db.get('DELETE FROM User WHERE id=?', [id])
-            .then(res => res)
-    })
+    const dbOpened = await openDb()
+    const user = await dbOpened.get('DELETE FROM User WHERE id=?', [id])
+    res => res
     res.json({ "statusCode": 200 })
 }
 
