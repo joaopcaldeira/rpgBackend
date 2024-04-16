@@ -18,5 +18,8 @@
     "sqlite": "^5.0.1",
     "sqlite3": "^5.1.6"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
 }
